@@ -7,14 +7,13 @@ dotenv.config();
 
 const MongoClient = mongodb.MongoClient
 
-// let mongo_username = process.env.DB_USERNAME;
-// console.log(mongo_username)
-// let mongo_password = process.env.DB_PASSWORD;
-// console.log(mongo_password)
-
+let mongo_username = process.env.DB_USERNAME;
+console.log(mongo_username)
+let mongo_password = process.env.DB_PASSWORD;
+console.log(mongo_password)
 const uri = process.env.MONGODB_URI;
 
-// const port = 8000
+var port = process.env.PORT || 8080;
 
 MongoClient.connect(
   uri,
@@ -29,7 +28,7 @@ MongoClient.connect(
   })
   .then(async client => {
     await RegionsDAO.injectDB(client)
-    .listen(process.env.PORT || 5000, () => {
-      console.log(`listening on port localhost:${5000}`)
+    app.listen(port, () => {
+      console.log(`listening on port localhost:${port}`)
     })
   })
