@@ -14,7 +14,7 @@ const MongoClient = mongodb.MongoClient
 
 const uri = process.env.MONGODB_URI;
 
-const port = 8000
+// const port = 8000
 
 MongoClient.connect(
   uri,
@@ -29,7 +29,7 @@ MongoClient.connect(
   })
   .then(async client => {
     await RegionsDAO.injectDB(client)
-    app.listen(port, () => {
-      console.log(`listening on port localhost:${port}`)
+    .listen(process.env.PORT || 5000, () => {
+      console.log(`listening on port localhost:${5000}`)
     })
   })
