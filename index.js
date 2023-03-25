@@ -7,11 +7,12 @@ dotenv.config();
 
 const MongoClient = mongodb.MongoClient
 
-let mongo_username = process.env.DB_USERNAME;
-console.log(mongo_username)
-let mongo_password = process.env.DB_PASSWORD;
-console.log(mongo_password)
-const uri = `mongodb+srv://${mongo_username}:${mongo_password}@cluster0.tbejsis.mongodb.net/?retryWrites=true&w=majority`;
+// let mongo_username = process.env.DB_USERNAME;
+// console.log(mongo_username)
+// let mongo_password = process.env.DB_PASSWORD;
+// console.log(mongo_password)
+
+const uri = process.env.MONGODB_URI;
 
 const port = 8000
 
